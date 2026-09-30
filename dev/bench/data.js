@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1790799946759,
+  "lastUpdate": 1790800489832,
   "repoUrl": "https://github.com/glaziermag/lovely-injector",
   "entries": {
     "lovely-core patches": [
@@ -863,6 +863,292 @@ window.BENCHMARK_DATA = {
             "name": "patch::regex_position_short/end",
             "value": 110763,
             "range": "± 4105",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "glaziermag",
+            "username": "glaziermag",
+            "email": "130600081+glaziermag@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "glaziermag",
+            "username": "glaziermag",
+            "email": "130600081+glaziermag@users.noreply.github.com"
+          },
+          "id": "ec7a33926588f4812f57d56204adb70e8ef6576f",
+          "message": "ci: fix benchmark publish step failing on every master push\n\ngithub-action-benchmark exits with \"auto-push must be false when\nexternal-data-json-path is set\", so publish-benchmark has failed on\nevery push since the workflow landed. Nothing reached gh-pages, and\nbecause the job failed the bench-cache was never saved, so PR runs\nhad no baseline to compare against.\n\nWrite the cache baseline and the Pages chart in two separate steps.\nBoth get github-token so manual workflow_dispatch runs can look up\nthe commit through the API.\n\nOnce the job passes, rust-cache saves target/ and the next run gets\nback a partially cleaned target/criterion. Criterion then fails to\nload base/sample.json and prints errors instead of results, so clear\ntarget/criterion before running the benchmarks.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "timestamp": "2026-09-30T19:23:54Z",
+          "url": "https://github.com/glaziermag/lovely-injector/commit/ec7a33926588f4812f57d56204adb70e8ef6576f"
+        },
+        "date": 1790800489241,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "patch::pattern_no_match/patch_0",
+            "value": 873943,
+            "range": "± 316695",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match/patch_1",
+            "value": 874904,
+            "range": "± 349827",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match/patch_2",
+            "value": 880510,
+            "range": "± 348624",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match/patch_3",
+            "value": 885297,
+            "range": "± 273645",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match/patch_0",
+            "value": 916093,
+            "range": "± 32825",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match/patch_1",
+            "value": 963120,
+            "range": "± 354983",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match/patch_2",
+            "value": 1310102,
+            "range": "± 23107",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match/patch_3",
+            "value": 1695490,
+            "range": "± 27001",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match/patch_0",
+            "value": 53636,
+            "range": "± 149384",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match/patch_1",
+            "value": 1269089,
+            "range": "± 316962",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match/patch_2",
+            "value": 1226944,
+            "range": "± 89411",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match/patch_3",
+            "value": 1476830,
+            "range": "± 351421",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match/patch_0",
+            "value": 8213325,
+            "range": "± 32074",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match/patch_1",
+            "value": 17054458,
+            "range": "± 98884",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match/patch_2",
+            "value": 1007501,
+            "range": "± 98708",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match/patch_3",
+            "value": 18859842,
+            "range": "± 829263",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match_short/patch_0",
+            "value": 74086,
+            "range": "± 4645",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match_short/patch_1",
+            "value": 73877,
+            "range": "± 4653",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match_short/patch_2",
+            "value": 76364,
+            "range": "± 17389",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_no_match_short/patch_3",
+            "value": 76582,
+            "range": "± 17426",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match_short/patch_0",
+            "value": 77660,
+            "range": "± 2647",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match_short/patch_1",
+            "value": 81898,
+            "range": "± 2654",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match_short/patch_2",
+            "value": 116973,
+            "range": "± 2001",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_with_match_short/patch_3",
+            "value": 157217,
+            "range": "± 17884",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match_short/patch_0",
+            "value": 6671,
+            "range": "± 18202",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match_short/patch_1",
+            "value": 157166,
+            "range": "± 77489",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match_short/patch_2",
+            "value": 1181886,
+            "range": "± 19712",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_no_match_short/patch_3",
+            "value": 1435533,
+            "range": "± 23195",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match_short/patch_0",
+            "value": 699148,
+            "range": "± 5902",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match_short/patch_1",
+            "value": 1488768,
+            "range": "± 9800",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match_short/patch_2",
+            "value": 99469,
+            "range": "± 7726",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_with_match_short/patch_3",
+            "value": 1751468,
+            "range": "± 27043",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_long/beginning",
+            "value": 852591,
+            "range": "± 17521",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_long/middle",
+            "value": 853624,
+            "range": "± 386917",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_long/end",
+            "value": 852955,
+            "range": "± 128744",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_short/beginning",
+            "value": 72320,
+            "range": "± 562",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_short/middle",
+            "value": 72324,
+            "range": "± 2969",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::pattern_position_short/end",
+            "value": 72567,
+            "range": "± 2145",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_long/beginning",
+            "value": 248053,
+            "range": "± 91762",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_long/middle",
+            "value": 209214,
+            "range": "± 258302",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_long/end",
+            "value": 168200,
+            "range": "± 758781",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_short/beginning",
+            "value": 201589,
+            "range": "± 8218",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_short/middle",
+            "value": 162784,
+            "range": "± 12982",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "patch::regex_position_short/end",
+            "value": 124055,
+            "range": "± 826",
             "unit": "ns/iter"
           }
         ]
